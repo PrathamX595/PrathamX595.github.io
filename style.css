@@ -1,6 +1,6 @@
 body{
     margin: 0;
-    padding: 20px;
+    padding-top: 20px;
     background-color: khaki;
 
 }
@@ -33,6 +33,7 @@ body{
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    z-index: 0;
 }
 
 .frame{
@@ -42,6 +43,7 @@ body{
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    z-index: inherit;
 }
 
 .box{
@@ -52,4 +54,71 @@ body{
     border-radius: 15px;
     box-shadow: 2px 2px 5px black;
     border: none;
+    z-index: inherit;
+}
+
+.btnHolder{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30px;
+}
+
+.btn{
+    margin: 10px;
+    width: 150px;
+    height: 52.5px;
+    border: 3px solid white;
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 52.5px;
+    color: aliceblue;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:larger;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.win{
+    height: 100px;
+    background-color: rgba(0,0,0,0.5);
+    color: aliceblue;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:larger;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: -365px;
+    z-index: 2;
+    border-top: 3px solid rgb(42, 85, 71) ;
+    border-bottom: 3px solid rgb(42, 85, 71);
+    color: rgb(42, 85, 71);
+    visibility: hidden;
+}
+
+.stale{
+    height: 100px;
+    background-color: rgba(0,0,0,0.5);
+    color: aliceblue;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:larger;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: -470px;
+    z-index: 2;
+    border-top: 3px solid rgb(42, 85, 71) ;
+    border-bottom: 3px solid rgb(42, 85, 71);
+    color: rgb(42, 85, 71);
+    visibility: hidden;
+}
+
+.hide{
+    visibility: hidden;
+}
+
+.vis{
+    visibility: visible;
 }
