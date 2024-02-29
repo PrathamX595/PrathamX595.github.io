@@ -55,6 +55,7 @@ body{
     box-shadow: 2px 2px 5px black;
     border: none;
     z-index: inherit;
+    color: chocolate;
 }
 
 .btnHolder{
@@ -121,4 +122,24 @@ body{
 
 .vis{
     visibility: visible;
+}
+
+.winBorder{
+    border: 3px solid rgb(255, 191, 0);
+}
+
+.turnX{
+    border: 3px solid rgb(138, 23, 23);
+}
+
+.turnO{
+    border: 3px solid rgb(41, 127, 118);
+}
+
+.permaTurnX{
+    border: 3px solid rgb(138, 23, 23);
+}
+
+.permaTurnO{
+    border: 3px solid rgb(41, 127, 118)
 }
