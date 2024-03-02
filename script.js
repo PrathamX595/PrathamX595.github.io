@@ -7,9 +7,10 @@ let turn = true ;
 function gameAgain(){
     turn = true;
     boxes.forEach((box) => {
-        let classes3 = box.classList;
-        classes3.remove("permaTurnX");
-        classes3.remove("permaTurnO");
+        let classes = box.classList;
+        classes.remove("permaTurnX");
+        classes.remove("permaTurnO");
+        classes.remove("winBorder");
         box.innerText = " ";
         box.disabled = false;
     })
@@ -20,10 +21,38 @@ function winCondition(){
     for(i; i < winCondi.length; ++i){
         let condi = winCondi[i]; 
         if(boxes[condi[0]].disabled == true && boxes[condi[1]].disabled == true && boxes[condi[0]].disabled == true && boxes[condi[0]].innerText === boxes[condi[1]].innerText && boxes[condi[1]].innerText === boxes[condi[2]].innerText && boxes[condi[2]].innerText === boxes[condi[0]].innerText){
-            gameAgain();
+            let b0Class = boxes[condi[0]].classList;
+            let b1Class = boxes[condi[1]].classList;
+            let b2Class = boxes[condi[2]].classList;
+            b0Class.remove("permaTurnX");
+            b0Class.remove("permaTurnO");
+            b1Class.remove("permaTurnX");
+            b1Class.remove("permaTurnO");
+            b2Class.remove("permaTurnX");
+            b2Class.remove("permaTurnO");
+            b0Class.add("winBorder");
+            b1Class.add("winBorder");
+            b2Class.add("winBorder");
+            boxes.forEach((box) => {
+                box.disabled = true;
+                box.removeEventListener("mouseover", () => {
+                    if(turn){
+                        let classes = box.classList;
+                        classes.add("turnX");
+                    }
+                    else{
+                        let classes = box.classList;
+                        classes.add("turnO");
+                    }
+                })
+            })
         }
     }
 }
+
+boxes.forEach((box) => {
+    
+})
 
 boxes.forEach((box) => {
     box.addEventListener('click',() => {
@@ -46,8 +75,18 @@ boxes.forEach((box) => {
     })
 })
 
+function turnCheck(){
+    if(turn){
+        let classes = box.classList;
+        classes.add("turnX");
+    }
+    else{
+        let classes = box.classList;
+        classes.add("turnO");
+    }
+}
 boxes.forEach((box) => {
-    box.addEventListener("mouseover", () => {
+    box.addEventListener("mouseover", ()=>{
         if(turn){
             let classes = box.classList;
             classes.add("turnX");
@@ -58,6 +97,7 @@ boxes.forEach((box) => {
         }
     })
 })
+    
 
 boxes.forEach((box) => {
     box.addEventListener("mouseleave", () => {
@@ -74,3 +114,4 @@ reset.addEventListener('click', () => {
 newGame.addEventListener('click', () => {
     gameAgain();
 })
+
