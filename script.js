@@ -13,6 +13,7 @@ function gameAgain(){
         classes.remove("winBorder");
         box.innerText = " ";
         box.disabled = false;
+        classes.remove("invisborder");
     })
 }
 
@@ -35,24 +36,12 @@ function winCondition(){
             b2Class.add("winBorder");
             boxes.forEach((box) => {
                 box.disabled = true;
-                box.removeEventListener("mouseover", () => {
-                    if(turn){
-                        let classes = box.classList;
-                        classes.add("turnX");
-                    }
-                    else{
-                        let classes = box.classList;
-                        classes.add("turnO");
-                    }
-                })
+                let classes = box.classList;
+                classes.add("invisborder");
             })
         }
     }
 }
-
-boxes.forEach((box) => {
-    
-})
 
 boxes.forEach((box) => {
     box.addEventListener('click',() => {
@@ -75,16 +64,6 @@ boxes.forEach((box) => {
     })
 })
 
-function turnCheck(){
-    if(turn){
-        let classes = box.classList;
-        classes.add("turnX");
-    }
-    else{
-        let classes = box.classList;
-        classes.add("turnO");
-    }
-}
 boxes.forEach((box) => {
     box.addEventListener("mouseover", ()=>{
         if(turn){
