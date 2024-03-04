@@ -3,6 +3,8 @@ let reset = document.querySelector("#reset");
 let newGame = document.querySelector("#newGame");
 let winCondi = [[0,1,2],[0,3,6],[0,4,8],[1,4,7],[2,5,8],[3,4,5],[6,7,8],[2,4,6]];
 let turn = true ;
+let win = document.querySelector(".win");
+let stale = document.querySelector(".stale");
 
 function gameAgain(){
     turn = true;
@@ -15,6 +17,24 @@ function gameAgain(){
         box.disabled = false;
         classes.remove("invisborder");
     })
+    win.style.visibility = "hidden";
+    stale.style.visibility = "hidden";
+
+}
+
+function stalemate(){
+    let i = 0;
+    let count = 0;
+    for(i; i < 9; ++i){
+        if(boxes[i].disabled == true){
+            count++;
+        }
+        if(count == 9){
+            if(win.style.visibility == "hidden"){
+                stale.style.visibility = "visible";
+            }
+        }
+    }
 }
 
 function winCondition(){
@@ -39,6 +59,15 @@ function winCondition(){
                 let classes = box.classList;
                 classes.add("invisborder");
             })
+            win.style.visibility = "visible";
+            if(turn){
+                win.innerText = "Congrats O won";
+                win.style.borderColor = ("rgb(41, 127, 118)");
+            }
+            else{
+                win.innerText = "Congrats X won";
+                win.style.borderColor = ("rgb(138, 23, 23)");
+            }
         }
     }
 }
@@ -61,6 +90,7 @@ boxes.forEach((box) => {
         }
         box.disabled = true;
         winCondition();
+        stalemate();
     })
 })
 
@@ -76,7 +106,6 @@ boxes.forEach((box) => {
         }
     })
 })
-    
 
 boxes.forEach((box) => {
     box.addEventListener("mouseleave", () => {
@@ -90,7 +119,4 @@ reset.addEventListener('click', () => {
     gameAgain();
 })
 
-newGame.addEventListener('click', () => {
-    gameAgain();
-})
 

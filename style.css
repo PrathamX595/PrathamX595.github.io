@@ -95,7 +95,7 @@ body{
     z-index: 2;
     border-top: 3px solid rgb(42, 85, 71) ;
     border-bottom: 3px solid rgb(42, 85, 71);
-    color: rgb(42, 85, 71);
+    color: white;
     visibility: hidden;
 }
 
@@ -113,7 +113,7 @@ body{
     z-index: 2;
     border-top: 3px solid rgb(42, 85, 71) ;
     border-bottom: 3px solid rgb(42, 85, 71);
-    color: rgb(42, 85, 71);
+    color: white;
     visibility: hidden;
 }
 
